@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+</style>
+</head>
+<body>
+
+<center><h2>Union</h2></center>
+
+<B>Different Structure Union</B>
+
+
+
+<table style="width:100%">
+  <tr>
+    <th>Structure</th>
+    <th>Union</th> 
+  </tr>
+  <tr>
+    <td>In structure each member get separate space in memory. The total memory required to store a structure variable is equal to the sum of size of all the members. In above case 7 bytes (2+1+4) will be required to store structure variable s1.</td>
+    <td>In union, the total memory space allocated is equal to the member with largest size. All other members share the same memory space. This is the biggest difference between structure and union.
+</td>
+    
+  </tr>
+  <tr>
+    <td>We can access any member in any sequence.</br>
+s1.rollno = 20;
+</br>
+s1.marks = 90.0;
+
+</br>printf(“%d”,s1.rollno);</br>
+
+
+The above code will work fine but will show erroneous output in the case of union.</td>
+    <td>We can access only that variable whose value is recently stored.</br>
+
+
+s1.rollno = 20;</br>
+
+s1.marks = 90.0;
+
+</br>printf(“%d”,s1.rollno);
+</br>
+
+The above code will show erroneous output. The value of rollno is lost as most recently we have stored value in marks. This is because all the members share same memory space.</td>
+   
+  </tr>
+  <tr>
+    <td>Each member within a structure is assigned unique storage area of location</td>
+    <td>Memory allocated is shared by individual members of union.</td>
+    
+  </tr>
+<tr>
+<td>The address of each member will be in ascending order This indicates that memory for each member will start at different offset values.</td>
+<td>The address is same for all the members of a union. This indicates that every member begins at the same offset value.</td>
+</tr>
+</table></BR>
+Like structure, Union in c language is a user defined datatype that is used to hold different type of elements. But it doesn't occupy sum of all members size. It occupies the memory of largest member only. It shares memory of largest member.
+</P>
+<pre><P><B>Syntax to define Union :</B>
+<font color="magenta">union</font> union_name
+
+{
+
+    <font color="magenta">data_t</font>ype member1;
+
+    <font color="magenta">data_t</font>ype member2;
+
+    .
+
+    .
+
+    <font color="magenta">data_t</font>ype memeberN;
+
+};
+
+
+
+<b>Example :</b>
+
+
+
+<font color="magenta">union</font> employee
+
+{
+
+    <font color="magenta">int</font> id;
+
+    <font color="magenta">char</font> name[<font color="brown">50</font>];
+
+    <font color="magenta">float</font> salary;
+
+};
+
+
+<b>Explanation :</b>
+
+
+Here the largest memory space will be of size <b>50byte(1*50)</b> i.e of <b>char name[50]
+
+
+Example :
+</b>
+
+
+#<font color="magenta">include</font> <stdio.h>
+
+<font color="magenta">union</union></font> employee
+
+{
+
+    <font color="magenta">int</font> id;
+
+    <font color="magenta">char</font> name[<font color="brown">20</font>];
+
+}e1;  //declaring e1 variable for union
+
+
+<font color="magenta">int</font> <font color="blue">main</font>( )
+
+{
+
+    //store employee information
+
+    <font color="orange">printf</font>(“Enter id : ”);
+
+    <font color="orange">scanf</font>(<font color="green">"%d"</font>,&e1.id);
+
+
+    <font color="orange">printf</font>(“Enter name : ”);
+
+    <font color="orange">scanf</font>(<font color="green">"%s"</font>,e1.name);
+
+
+    //printing employee information
+
+   <font color="orange"> printf</font>(<font color="green"> "Employee id : %d\n"</font>, e1.id);
+
+    <font color="orange">printf</font>(<font color="green"> "Employee name : %s\n"</font>, e1.name);
+
+    return 0;
+
+}
+
+
+<b>
+Output :</b>
+<div style="width:250px;height:150px;border:1px solid #000;">
+Enter id : 20
+
+Enter name : abc
+
+Employee id : 1819043176
+
+Employee name : abc</div>
+</p>
+</pre>
+
+
+<table style="border:2px solid green"><tr><td><a href="../index.htm">Home</a></td></tr></table>
+</body>
+</html>
