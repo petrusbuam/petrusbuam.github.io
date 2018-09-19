@@ -1,0 +1,72 @@
+﻿<!--This Website is to help all the students learning C programming-->
+<!DOCTYPE html>
+<html>
+<head>
+<title> Header_Files </title>
+</head>
+<body>
+<h1 style="text-align:center"> Header files </h1>
+<p>A header file is a file containing C declarations and macro definitions to be shared between several source files.</pa>
+<p>Header can be the system header file or it can be created by user.</p>
+<h4>Syntax for System Header File:</h4>
+<pre>
+	#include< file >
+</pre>
+<h4>Example :</h4>
+<pre>
+	#include< stdio.h >
+</pre>
+<h4>Explanation:</h4>
+<p>It searches for a file named <b>‘stdio.h’</b> in a standard list of system directories.</p>
+<h4>Syntax for User defined header file :</h4>
+<pre>
+	#include "file"
+</pre>
+<h4>Explanation:</h4>
+<p>It searches for a file named 'file' in the directory containing the current file.</p>
+<h4>Example:</h4>
+<p>Create a header file in demoheader.h, that contains <b>add()</b> function</p>
+<pre>
+int add(int a, int b)
+{
+	return(a+b);
+}
+</pre>
+<h4>Main program in demo.c</h4>
+<pre>
+#include< stdio.h > 
+#include"demoheader.h" 
+void main() 
+{ 
+	int num1 = 20, num2 = 30, num3; 
+	num3 = add(num1, num2); 
+	printf("Addition of Two numbers : %d", num3); 
+} 
+</pre>
+<h4>Output:</h4>
+<pre>
+	Addition of Two numbers : 50 
+</pre>
+<h4>Explanation:</h4>
+<p>The compiler will see the same token stream as it would, if demo.c read.</p>
+<pre>
+#include< stdio.h > 
+int add(int a,int b) 
+{ 
+	return(a+b); 
+} 
+void main() 
+{ 
+	int num1 = 20, num2 = 30, num3; 
+	num3 = add(num1, num2); 
+	printf("Addition of Two numbers : %d", num3); 
+} 
+</pre>
+<p>NOTE:</p>
+<ul>
+	<li type="square">A header file is a file with extension .h </li>
+	<li type="square">To use header file in the program by including it with the C preprocessing directive #include</li>
+</ul>
+<table style="border:2px solid green"><tr><td><a href="HomePage.htm">Home</a></td></tr></table>
+</body>
+</html>
