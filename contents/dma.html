@@ -1,0 +1,520 @@
+<!doctype html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<p><h1><center>Dynamic Memory Allocation</center></h1></p>
+<h3><u>15.1 Introduction</h3></u>
+<i>The process of allocating memory during program execution is called Dynamic Memory Allocation.</i></br>
+
+
+<pre>
+The exact size of an array is<b> unknown</b> until the compile time. The size of array that you have declared initially can be sometimes insufficient and sometimes more than required.Dynamic Memory Allocation allows a program to obtain more memory space, while running or to release space when no space is required.
+
+
+<b>Dynamic Memory Allocation</b> in c language is possible by 4 functions of <b>stdlib.h </b>header file
+1. malloc()
+2. calloc()
+3. reallloc()
+
+Above three functions Allocates a block of memory on the heap
+
+
+1. free()
+ <b>
+free()</b> Deallocates a block of memory on the heap
+
+
+In order to use these 4 functions, header file < stdlib.h > has to be added.
+E.g.
+
+#<font color="magenta">include</font>< stdlib.h >
+
+</pre>
+<p>
+<h3><u>15.2 Difference between Static and Dynamic memory</h3></u>
+</p>
+In Dynamic Memory Allocation, memory is allocated at <b>run time</b>. Whereas in Static Memory Allocation, memory is allocated at<b> compile time</b>.
+<pre>
+<b>Example :</b>
+
+	//Static allocation:
+
+	<font color="magenta">int</font> a[<font color="brown">20</font>];
+
+	//Dynasmic allocation
+	<font color="magenta">int </font>*ptr;
+
+	ptr=(<font color="magenta">int </font>*)<font color="yellow">malloc</font>(<font color="magenta">sizeof</font>(<font color="magenta">int</font>)*<font co;lor="brown">20</font>);
+</pre>
+<h3><u>15.3 malloc</h3></u>
+The name malloc stands for "memory allocation". The function malloc() reserves a block of memory of specified size and return a pointer of type void which can be casted into pointer of any form.
+
+
+</br>
+<b>Syntax :</b>
+</br>
+
+
+<font color="magenta">void</font> * <font color="orange">malloc</font> (<font color="magenta">size_t</font> size);
+
+<b>size_t</b> :stores only positive integer value, you can think of this particular datatype as unsigned integer datatype.</br>
+<b>size </b>cannot be negative , it can be either positive or zero value.<b> 
+Malloc</b> return a void pointer that gives us the address of the first byte in the block of memory that it allocates.
+
+
+<pre>
+<b>Example :</b>
+
+
+
+    void *malloc(2*sizeof(int)); //(no of elements * size of one unit)
+
+this will store <b>2 * 4 = 8 byte</b> on the memory say from address <b>201 to 208</b>, ie. It allocates a block of memory for array of 2 integer , each of 4 byte
+
+
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+</style>
+</head>
+<body>
+<table style="width:15%">
+  <tr>
+    <th>Value1</th>
+    <th>Value2</th> 
+   
+  </tr>
+  <tr>
+    <td>    201</td>
+    <td>    205</td>
+  </tr>
+</table>
+</th>
+so the malloc will return <b>void ptr</b> to the address of the first byte i.e 201.
+
+if we want to store values at these addresses.
+<ul>
+<li>As malloc return void ptr, and void ptr cannot be de-referenced, so we cannot directly assign the values as *p = 2;
+</li>
+<li>void ptr can be typecasted into a pointer type of particular datatype and then it is used.
+</li>
+<li>Inorder to use this block of memory we first need to typecast this void pointer of some datatype like this
+</li>
+</ul>
+
+<b>Syntax :</b>
+
+
+
+datatype ptr=(cast-type)<font color="orange">malloc</font>(byte-size)
+pointer = (type)<font color="orange"> malloc</font> (size in bytes);
+
+
+<b>Example :</b>
+
+
+
+ptr=(<font color="magenta"int</font></font>*)<font color="orange">malloc</font>(<font color="brown">2</font>*<font color="orange">sizeof(int</font>));<font color="grey">//2*4=8bytes
+
+</font>
+By asking memory block of 2 integers, we are basically creating an array of integers with 2 elements.
+
+
+
+<b><u>Assigning values to the address :
+</b></u>
+
+
+ptr =<font color="brown"> 2</font>; <font color="grey">// this will assign value at the address say 201
+</font>
+
+(ptr + <font color="brown">1</font>) = <font color="brown">3</font>; <font color="grey">// this will assign value at the address 205
+
+
+</font>
+<b><u>Getting the address</u></b>
+
+
+
+&ptr[<font color="brown">0</font>] to get the address of first element and &ptr[<font color="brown">1</font>] to get the address of second element.
+
+
+<u><b>To access the values stored at the addresses</u></b>
+
+
+
+*ptr will give the <font color="magenta">value as</font><font color="brown" > 2</font>
+
+*(ptr + 1) will give the <font color="magenta">value</font><font color="brown"> 3</font>
+
+
+We can use <b>ptr[0]</b> to get the value <b>2</b> and <b>ptr[1]</b> to get the value <b>3</b>.
+
+
+To get next element in the array, you can increment the pointer.
+
+Example :
+
+
+	
+#<font color="magenta">include </font>< stdio.h >
+
+	#<font color="magenta">include </font>< stdlib.h >
+
+    	<font color="magenta">void<font color="blue"> main</font></font>()
+
+    {
+
+        <font color="magenta">int</font> n,i,*ptr,sum=<font color="brown">0</font>;
+
+
+        <font color="orange">printf</font>(<font color="green">"Enter number of elements: "</font>);
+
+        <font color="orange">scanf</font>(<font color="green">"%d"</font>,&n);
+
+
+        ptr=(<font color="magenta">int</font>*)<font color="orange">malloc</font>(n*<font color="magenta">sizeof</font>(<font color="magenta">int</font>));  //memory allocated using malloc
+
+
+        <font color="magenta">if</font>(ptr==NULL)
+
+        {
+
+            <font color="orange">printf</font>(<font color="green">"Requested size of memory is unavailable "</font>);
+
+            <font color="orange">exit</font>(0);
+
+        }
+
+
+        <font color="orange">printf</font>(<font color="green">"Enter elements of array: "</font>);
+
+        <font color="magenta">for</font>(i=<font color="brown">0</font>;i<n;++i)
+
+        {
+
+            <font color="orange">scanf</font>(<font color="green">"%d"</font>,ptr+i);
+
+            sum+=*(ptr+i);
+
+        }
+
+        <font color="orange">printf</font>(<font color="green">"Sum=%d"</font>,sum);
+
+    }
+<b>Output :</b>
+<div style="width:260px;height:150px;border:1px solid #000;">
+Enter number of elements: 4
+Enter elements of array:
+5
+5
+5
+5
+
+Sum=20
+
+
+
+</div>
+</pre>
+<h3><u>15.4 calloc</h3></u>
+<pre>
+The name calloc stands for <b>"contiguous allocation"</b>. 
+The only difference between<b> malloc()</b> and <b>calloc()</b> is that, malloc() allocates <b>single block</b> of memory whereas calloc() allocates <b>multiple blocks</b> of memory each of same size and sets all bytes to zero.
+Another difference between <b>malloc and calloc</b> is that , malloc allocates some amount of memory , it<b> does not initialize </b>the byte with any value, so if you do not fill any values in the addresses allocated by malloc,the malloc will assign <b>garbage</b> values in the block of memory, 
+but if the memory is allocated by calloc, the calloc sets all byte position to value zero, so it initializes the memory that it allocates to zero. 
+Calloc also returns a void pointer same as malloc.
+
+<b>syntax:</b>
+	<font color="magenta">void</font> * <font color="orange">calloc</font> (<font color="magenta">size_t n, size_t</font> size);
+
+there are two arguments,
+
+	1.<b> size_t n :</b> the number of elements of particular datatype
+
+	2. <b>size_t size :</b> the size of the datatype.
+
+<b>Example :</b>
+
+ptr=(cast-type*)<font color="orange">calloc</font>(n,element-size);
+This statement will allocate contiguous space in memory for an array of n elements
+
+
+
+ptr=(<font color"magenta>float</font><font color="orange">calloc</font>(25,<font color="magenta">sizeof</font>(<font color="magenta">float</font>)); 
+This statement allocates contiguous space in memory for an array of 25 elements each of size of float, i.e, 4 bytes.
+
+<b>Example :</b>
+
+
+	
+#<font color="magenta">include</font> < stdio.h >
+
+	#<font color="magenta">include </font>< stdlib.h >
+
+	<font color="magenta">void</font> <font color="BLUE">main</font>()
+
+   {
+
+    	<font color="magenta">int</font> n,i,*ptr,sum=<font color="BROWN">0</font>;
+
+
+    	<font color="ORANGE">printf</font>(<font color="GREEN">"Enter number of elements: "</font>);
+
+    	<font color="orange">scanf</font>(<font color="green">"%d"</font>,&n);
+
+
+    	ptr=(<font color="magenta">int</font>*)<font color="orange">calloc</font>(n,<font color="magenta">sizeof</font>(<font color="magenta">int</font>));//memory allocated using calloc
+
+
+    	<font color="magenta">if</font>(ptr==NULL)
+
+   {
+
+        <font color="orange">printf</font>(<font color="green">"Requested size of memory is unavailable "</font>);
+
+        <font color="orange">exit</font>(<font color="brown">0</font>);
+
+   }
+
+
+    	<font color="orange">printf</font>(<font color="green">"Enter elements of array: "</font>);
+
+    	<font color="magenta">for</font>(i=<font color="brown">0</font>;i<n;++i)
+
+   {
+
+        <font color="orange">scanf</font>(<font color="green">"%d"</font>,ptr+i);
+
+        sum+=*(ptr+i);
+
+   }
+
+    	<font color="orange">printf</font>(<font color="green">"Sum=%d"</font>,sum);
+
+   }
+<b>Output :</b>
+	<div style="width:260px;height:150px;border:1px solid #000;">
+	Enter number of elements: 4
+
+	Enter elements of array:
+	5
+	5
+	5
+	5
+
+	Sum=20
+
+
+</div></pre>
+<h3><u>15.5 realloc</h3></u>
+<p>
+<b>relloc()</b> function is used to change the size of a dynamically allocated block of memory.
+</br>
+
+If memory is not sufficient for malloc() or calloc(), you can <b>reallocate</b> the memory by <b>realloc()</b> function.
+
+</p>
+<b>Syntax :</b>
+
+</br><font color="magenta"
+
+>void</font> * realloc (<font color="magenta"
+
+>void</font> * ptr, <font color="magenta"
+
+>size_t</font> size);</br>
+
+
+<b>void ptr :</b> is the pointer to the starting address of the existing block</br>
+
+<b>
+size :</b> size of the new block<br>
+
+
+<b><u>
+Tips :</b></u></br>
+
+
+<b>int a = (int)realloc(a,0);</b> //this is equivalent to free() as this will deallocate the complete block of a.<b>
+int *a=(int *)realloc(NULL,n*sizeof(int));</b> //this is equivalent to malloc(). This only creates new block of memory of size n.
+
+</br>
+
+</br><div style="width:1000px;height:100px;border:1px solid #000;">Note :</br>
+
+
+<i class="material-icons" style="font-size:10px;color:blue">star</i>
+If the size of the new block is larger then the size of the previous block then the machine will create entirely new block and copy the previous data written in the previous block of memory to the new block of memory.</br>
+
+<i class="material-icons" style="font-size:10px;color:blue">star</i>
+If the contiguous block of memory is available with the existing block, then the existing block will be extended.
+
+</div	>
+</pre>
+<h3><u>15.6 Free</h3></u>
+<p>
+Any dynamically located memory, remains allocated till the time that program is available. To deallocate the memory we need to explicitly deallocate the memory by using function free()</br>
+
+
+<b>Example malloc,realloc,free</b>
+<pre>
+	#<font color="magenta">include</font></font>< stdio.h >
+
+	#<font color="magenta">include</font>< conio.h >
+
+	#<font color="magenta">include</font>< stdlib.h >
+
+
+	<font color="magenta">void</font><font color="blue"> main</font>()
+
+   {
+
+    	<font color="magenta">int</font> n;
+
+
+    	<font color="orange">printf</font>(“Enter size of<font color="orange"> array”</font>);
+
+    	<font color="orange">scanf</font>(“%d”, &n);
+
+
+    	<font color="magenta">int</font> *a = (<font color="magenta">int</font>)malloc(n*sizeOf(<font color="magenta">int</font>));
+ 	/<font color="grey">/dynamically allocated array
+
+    //if we donot initialize the values in the array, then by default the malloc will assign garbage values in the block of memory
+
+    //so if we comment the below for loop then it will print garbage values</font>
+
+
+    for(<font color="magenta">int</font> i =<font color="brown"> 0</font>; i < n; i++)
+
+    {
+
+        a[i]=i+1;//assigning values as 1,2,3..n;
+    }
+
+
+    <font color="grey">//if we use free() function below, to free the memory space then free() function will erase all the data from memory.
+
+
+    //Free(a);// so better not to use free() here
+
+
+    //now this below for loop will print garbage values because the free() has removed all data from memory.
+
+    //To resize the memory block: we have memory block to store n elements in an array, and we want to double the size of array or want to reduce the size, so for this we can use realloc().</font>
+
+
+    int *b = (<font color="magenta">int</font> )realloc(a,<font color="brown">2</font>*n*<font color="magenta">sizeof</font>(<font color="magenta">int</font>));
+	<font color="grey">//this will allocate double the size of previous block.
+
+    //after realloc(), it will create new memory block of size 2n and copy the values of previous block of memory values into the new memory block b.
+
+    //so previous values for n =2,were a[0]=1 and a[1]=2, then after realloc, the block of memory will be 2*n=2*2=4
+
+    //so if we print the values that is there in the new block b as</font>
+
+
+
+    <font color="magenta">for</font>(<font color="magenta">int</font> i = <font color="brown">0</font>; i < n; i++)
+
+    {
+
+        <font color="orange">printf</font>(“%d ”,b[i]);
+
+        <font color="grey">//n=2,so new size of memory block is 2*2=4,this will print values as “1 2 garbagevalue1 garbagevalue2”.
+
+        //since 1 and 2 are values of previous block a, so they are copied in the new block b
+
+        //and garbage values are printed in the new block of memory because till now no values are assigned in the new block of memory</font>
+
+    }
+
+
+    <font color="magenta">for</font>(<font color="magenta">int</font> i = <font color="brown">0</font>; i < n; i++)
+
+    {
+
+        printf(“%d ”,b[i]);
+ 
+	<font color="grey">//n=2,so new size of memory block is 2*2=4,this will print values as “1 2 garbagevalue1 garbagevalue2”.
+
+        //since 1 and 2 are values of previous block a, so they are copied in the new block b
+
+        //and garbage values are printed in the new block of memory because till now no values are assigned in the new block of memory</font>
+
+    }
+    
+	<font color="magenta">for</font>(<font color="magenta">int</font> i = <font color="brown">0</font>; i < n; i++)
+
+    {
+
+        <font color="orange">printf</font>(“%d ”,a[i]);
+	<font color="grey"> //this will print values as 1 2 3...n
+</font>
+    }
+
+	<font color="grey">//this will deallocate after the block of memory has been used , so that it can be reused.</font>
+	<font color="orange">
+free</font>();
+    }
+
+<b>Example for calloc()</b>:
+
+	#<font color="magenta">include</font>< stdio.h >
+
+	#<font color="magenta">include</font>< conio.h >
+
+	#<font color="magenta">include</font>< stdlib.h >
+
+
+	<font color="magenta">void </font><font color="blue>main</font>()
+
+   {
+
+    	<font color="magenta">int</font> n;
+
+
+    	<font color="orange">printf</font>(“enter size of <font color="orange>array”</font>);
+
+    	<font color="orange">scanf</font>(“%d”, &n);
+
+
+    	<font color="magenta">int</font> *a = (<font color="magenta">int</font>)<font color="orange">calloc</font>(n*sizeOf(int));
+    	<font color="grey">//dynamically allocated array
+
+    	//if we do not initialize the values in the array then by default the calloc will assign zeros in the block of memory.
+
+    	//so if we comment the below for loop then it will print all values as zero on the console
+
+    	//and if we assign values by using the below for loop , then it print all the values that are assigned in the block of memory</font>
+
+    	<font color="magenta">for</font>(int i = 0; i < n; i++)
+
+   {
+
+        a[i]=i+1;<font color="grey">//assigning values as 1,2,3...n;</font>
+
+   }
+
+
+    	<font color="magenta">for</font>(<font color="magenta">int </font>i = 0; i < n; i++)
+
+   {
+
+        <font color="orange">printf</font>(“%d ”,a[i]);<font color="grey"> //this will print values as 1 2 3...n
+</font>  
+   }
+}
+
+
+
+</pre>
+<h2><a href="../index.htm"><table style="border: 2px solid green"><tr><td>Hompage</tr></td></table></a></h2>
+</head>
+</body>
+</html>

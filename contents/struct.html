@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<body>
+<center><h1>Structures</h1></center>
+<u><h3>10.1 Introduction</h3></u>
+<p>Structure in c language is a user defined datatype that allows you to hold different type of elements.</p>
+<p>
+<b>Difference between arrays and structures</b></br>
+<p>An array is a collection of related data elements of same type. Structure can have elements of different types.</br></p>
+<p><b>Syntax for defining structure :
+</b><br>
+//The struct keyword is used to define structure
+</br> 
+<font color="magenta">struct </font>structure_name
+<pre>     {
+	<font color="magenta">data_t</font>ype member1;
+	<font color="magenta">data_t</font>ype member2;   
+	.
+	.
+ 	<font color="magenta">data_t</font>ype memeberN;
+     };</pre>
+
+
+<p>
+
+
+<b>Important Points :</b></br>
+
+<ul>
+<li>The closing brace '}' in the structure type declaration must be followed by a semicolon ';'.</li>
+
+<li>Usually structure type declaration appears at the top of the source code file, before any variables or functions are defined.</li>
+</ul>
+<p>
+If you want to store data about a book. Like Data related to<b> name(string), price(float), pages(integer).</b>
+</br>
+Then the structure is defined as:</br>
+
+
+<b>Example :</b></br>
+<pre>     
+	<font color="magenta">struct </font>book;
+    {
+	<font color="magenta">char </font>name[50];
+
+	<font color="magenta">float </font>price;
+	<font color="magenta">int </font>pages;
+    };</pre>
+
+
+
+
+<p><b>
+
+
+Explanation :</b></br>
+
+<b>
+struct</b>- is a keyword.
+</br>
+
+<b>book</b>- is the tag name of the structure
+
+ </br>
+<b>name, price, pages</b>- are the members or fields of the structure
+
+
+ </br></p>
+<p><b>Declaring a structure variable :</b></br>
+
+
+Once the new structure data type has been defined one or more variables can be declared to be of that type.
+</br>
+For example the variables<b> b1, b2, b3</b> can be declared to be of the type <b>struct book.</b></br></p>
+
+
+
+<p><b>Syntax :</b></br>
+
+
+<font color="magenta">struct </font>book b1,b2,b3;</br>
+
+
+This statement will create space in the memory to hold all the elements in the structure,</br>
+ 
+in this case it will be
+<b> 7 bytes</b> –</br>
+<ul>
+
+
+<b><li>1byte for char(name)</li></b></br>
+
+<b><li>4byte for float(price)
+</li></b></br>
+<b><li>2byte for integer(pages)</li></b></br></p>
+
+</ul>
+<p>
+<b>Examples for declaring structure :</b></p>
+
+<pre><font color="magenta">  struct </font>book
+    {
+
+	<font color="magenta">char </font>name;
+	<font color="magenta">float </font>price;
+
+	<font color="magenta">int </font>pages;
+    };
+	<font color="magenta">struct </font>book b1, b2, b3;
+
+
+	<font color="magenta">struct </font>book
+
+    {
+
+	<font color="magenta">char </font>name;
+
+	<font color="magenta">float </font>price;
+
+	<font color="magenta">int </font>pages;
+
+    }b1, b2, b3;
+   <font color="magenta">struct</font>
+	{
+	<font color="magenta">char </font>name;
+
+	<font color="magenta">float </font>price;
+
+	<font color="magenta">int</font>pages;
+
+    }
+   b1, b2, b3;</p>
+</pre>
+<!––Second Part––>
+<center><h1>Initializing Structure</h1></center>
+<p>
+<h3><b><u>10.02 Initializing the structure variables :</u></b></h3>
+
+<pre><font color="magenta">struct </font>book
+
+    {
+
+	<font color="magenta">char </font>name[10];
+
+	<font color="magenta">float </font>price;
+
+	<font color="magenta">int </font>pages;
+
+    };
+	<font color="magenta">struct </font>book b1 = { <font color="green">"abc",</font>50.00, 100 };
+
+	<font color="magenta">struct</font> book b2 = { <font color="green">"xyz",</font> 200.00, 500 };
+</pre>
+
+<!––Third Part––>
+<p>
+<h3><b><u>10.03 Accessing Structure elements</u></b></h3>
+<pre>
+
+'.' => member or <b>dot</b> operator to access the pages of the structure<b> book </b>:
+
+
+
+b1.pages
+
+
+Similarly to refer to price
+
+
+
+b1.price
+
+
+<b>Example :</b>
+
+
+
+#<font color="magenta">include</font><stdio.h>
+
+#<font color="magenta">include</font><conio.h>
+
+<font color="magenta">void</font> main( )
+
+{
+
+    <font color="magenta">struct</font> book
+
+    {
+
+        <font color="magenta">char</font> name;
+
+        <font color="magenta">float</font> price;
+
+        <font color="magenta">int</font> pages;
+
+    };
+
+    <font color="magenta">struct </font>book b1 = { <font color="green">'B'</font>,<font color="brown"> 130.00, 550</font> };
+
+     <font color="orange">printf </font>(<font color="green">"\nName of the book = %c"</font>, b1.name);
+
+     <font color="orange">printf </font>(<font color="green">"\nPrice of book = %f"</font>, b1.price);
+
+     <font color="orange">printf </font>(<font color="green">"\nNumber of pages in the book = %d"</font>, b1.pages);
+
+     <font color="orange">printf </font>(<font color="green">"\nAddress of name = %u"</font>, &b1.name);
+
+     <font color="orange">printf </font>(<font color="green">"\nAddress of price = %u"</font>, &b1.price);
+
+     <font color="orange">printf </font>(<font color="green">"\nAddress of pages = %u"</font>, &b1.pages);
+
+}
+
+
+</pre>
+<pre>
+<b>Output :</b>
+
+		<div style="width:300px;height:180px;border:1px solid #000;">	Name of the book = B
+
+	Price of book = 130.00
+
+	Number of pages in the book = 550
+
+	Address of name = 65518
+
+	Address of price = 65519
+
+	Address of pages = 65523</div>
+
+
+
+
+<b>Example of User Input :</b>
+
+
+
+#<font color="magenta">include</font> <stdio.h>
+
+<font color="magenta">int</font> main(<font color="magenta">void</font>)
+
+{
+
+    <font color="magenta">struct</font> book
+
+    {
+
+    <font color="magenta">char</font> name[<font color="brown">10</font>];
+
+    <font color="magenta">int</font> price;
+
+    }
+b1[<font color="brown">5</font>];
+
+
+    <font color="magenta">int</font> i;
+
+    <font color="magenta">for</font>(i=<font color="brown">0</font>;i<<font color="brown">2</font>;i++)
+
+    {
+
+        Printf(“\nEnter Book name : ”);
+
+        <font color="orange">scanf</font>(<font color="green">"%s"</font>,b1[i].name);
+
+
+        <font color="orange">printf</font>(“\nEnter Price :”);
+
+        <font color="orange">scanf</font>(<font color="green">"%d"</font>,&b1[i].price);
+
+    }
+
+    <font color="magenta">for</font>(i=<font color="brown">0</font>;i<<font color="\brown">2</font>;i++)
+
+    {
+
+        <font color="oramge">printf</font>(<font color="green">"\nName is : %s"</font>,b1[i].name);
+
+        <font color="orange">printf</font>(<font color="green">"\nPrice : %d "</font>,b1[i].price);
+
+    }
+
+
+    <font color="magenta">return </font><font color="brown">0</font>;
+
+}
+
+
+Output :
+
+
+		<div style="width:220px;height:210px;border:1px solid #000;">	Enter Book name :Abc
+
+	Enter Price:100
+
+	Enter Book Name :Pqr
+	Enter Price:50
+	Name is : Abc
+
+	Price : 100
+
+	Name is : Pqr
+
+	Price : 50
+
+
+</div>
+<B>Explanation :</b>
+
+
+Here <b>b1[5]</b> means b1 is structure variable and size is defined as <b>5</b> means we can store 5 book details in the memory. So here we are storing <b>2</b> book details with its name and price.<b> 
+For loop</b> is used to get the 2 book details.
+</pre>
+<u><h2>10.4 Nested Structure</h2></u>
+<u><h3>10.4.1 Separate Structure</h3></u>
+<pre>
+Nested structure in c language can have another structure as a member.
+
+There are two ways to define nested structure in c language :
+
+<ul><li>By separate structure</li>
+
+<li>By Embedded structure</li>
+</ul>
+
+
+<b><u>Separate Structures :</b></u>
+
+
+We can create 2 structures, but dependent structure should be used inside the main structure as a member.
+
+
+<font color="magenta">
+struct</font> Date
+
+{
+
+ <font color="magenta">   int</font> dd;
+
+    <font color="magenta">int</font> mm;
+
+    <font color="magenta">int</font> yyyy;
+
+};
+<font color="magenta">
+struct</font>Employee
+
+{
+
+ <font color="magenta">   int</font> id;
+
+    <font color="magenta">char</font> name[ <font color="brown">20</font>];
+
+   <font color="magenta"> struct</font> Date doj;
+
+}emp1;
+
+
+As you can see,<b> doj (date of joining)</b> is the variable of type Date. Here doj is used as a member in Employee structure.
+</pre>
+<u><h3>10.4.2 Embedded Structure</h3></u>
+<pre>
+<b>We can define structure within the structure also.
+
+
+</b>
+<font color="magenta"> struct</font> Employee
+
+{
+
+    <font color="magenta"> int</font> id;
+
+    <font color="magenta"> char</font> name[<font color="brown"> 20</font>];
+
+    <font color="magenta"> struct </font>Date
+
+    {
+
+     <font color="magenta">    int</font> dd;
+
+        <font color="magenta"> int </font>mm;
+
+        <font color="magenta"> int</font> yyyy;
+
+    }doj;
+
+}emp1;
+
+
+
+<b>Accessing Nested Structure</b>
+
+
+We can access the member of nested structure by
+ <b>Outer_Structure.Nested_Structure.member</b> as given below :
+
+
+
+emp1.doj.dd
+
+emp1.doj.mm
+
+emp1.doj.yyyy
+
+<b>
+
+Example of nested structures</b>
+
+
+
+	#<font color="magenta"> include</font> <stdio.h>
+
+	#<font color="magenta"> include</font> <string.h>
+
+	<font color="magenta"> struct</font> Employee
+
+   {
+
+    	<font color="magenta"> int</font> id;
+
+    	<font color="magenta"> char</font> name[20];
+
+
+    	<font color="magenta"> struct</font> Date
+
+   {
+
+        <font color="magenta"> int</font> dd;
+
+        <font color="magenta"> int</font> mm;
+
+        <font color="magenta"> int</font> yyyy;
+
+    	}doj;
+
+	}e1;
+
+	<font color="magenta"> int</font> <font color="blue"> main</font>( )
+
+  {
+
+    //storing employee information
+
+    e1.id=1;
+
+    //copying string into char array
+
+    <font color="orange"> strcpy</font>(e1.name, <font color="green"> "xyz"</font>);
+
+
+    e1.doj.dd=<font color="brown"> 26;</font>
+
+    e1.doj.mm=<font color="brown"> 12;</font>
+
+    e1.doj.yyyy=<font color="brown"> 2014;</font>
+
+
+    //printing employee information
+
+    <font color="orange"> printf</font>( <font color="green"> "employee id : %d\n"</font>, e1.id);
+
+    <font color="orange"> printf</font>( <font color="green"> "employee name : %s\n"</font>, e1.name);
+
+    <font color="orange"> printf</font>( <font color="green"> "employee date of joining (dd/mm/yyyy) : %d/%d/%d\n"</font>, e1.doj.dd,e1.doj.mm,e1.doj.yyyy);
+
+    <font color="magenta"> return <font color="brown"> 0</font>;</font>
+
+  }
+
+
+</pre>
+<b>Output :</b>
+
+<pre>
+<div style="width:430px;height:110px;border:2px solid #000;">
+	Employee id: 1
+	employee name : xyz
+
+	Employee date of joining (dd/mm/yyyy) : 26/12/2014
+
+
+</pre>
+</div>
+<table style="border:2px solid green"><tr><td><a href="../index.htm">Home</a></td></tr></table>
+</body>
+</html>
+
