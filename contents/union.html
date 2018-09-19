@@ -33,7 +33,7 @@ s1.rollno = 20;
 </br>
 s1.marks = 90.0;
 
-</br>printf(ì%dî,s1.rollno);</br>
+</br>printf(‚Äú%d", s1.rollno);</br>
 
 
 The above code will work fine but will show erroneous output in the case of union.</td>
@@ -44,7 +44,7 @@ s1.rollno = 20;</br>
 
 s1.marks = 90.0;
 
-</br>printf(ì%dî,s1.rollno);
+</br>printf(‚Äú%d‚Äù, s1.rollno);
 </br>
 
 The above code will show erroneous output. The value of rollno is lost as most recently we have stored value in marks. This is because all the members share same memory space.</td>
@@ -127,12 +127,12 @@ Example :
 
     //store employee information
 
-    <font color="orange">printf</font>(ìEnter id : î);
+    <font color="orange">printf</font>(‚Äú Enter id : ‚Äù);
 
     <font color="orange">scanf</font>(<font color="green">"%d"</font>,&e1.id);
 
 
-    <font color="orange">printf</font>(ìEnter name : î);
+    <font color="orange">printf</font>(‚Äú Enter name : ‚Äù);
 
     <font color="orange">scanf</font>(<font color="green">"%s"</font>,e1.name);
 
