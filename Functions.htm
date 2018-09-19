@@ -1,0 +1,168 @@
+﻿<!--This Website is to help all the students learning C programming-->
+<!DOCTYPE html>
+<html>
+<head>
+<title> Functions </title>
+</head>
+<body>
+<h1 style="text-align:center"> <u>Functions</u> </h1>
+<h2><u>6.1 Introduction of function</u> </h2>
+<p>A function is a block of statements, which is used to perform a specific task.</p>
+<p>A C program has at least one function named <b>main().</b><br>
+<b>Types of functions:</b><br>
+There are two types of function in C<br>
+1.<b>Library function</b><br>
+2.<b>User defined function</b></p>
+<p> <b>Library Function:</b><br>
+Library functions are the <b>built-in</b> function in C such as <b>puts(), gets(), printf(), scanf()</b> etc. These are the functions which
+already have a definition in header files.</p>
+<p><b>User defined function:</b><br>
+C allows programmer to define their own function according to their requirement.</p>
+<p><b>Syntax of function:</b>
+<pre><table style="border:2px solid green"><tr><td>
+return_type function_name (argument list)
+	{
+		Block of code
+	}
+</td></tr></table></pre>
+<p><b>return-type:</b> return types are the types of data that is returned by the function. if <b>nothing</b> is returned then the return type is <b>void.</b> 
+<p><b>argument list:</b>argument list contains variables names along with their data types. These arguments are inputs for the function.</p>
+<h4>Syntax:</h4>
+<pre><table style="border:2px solid green"><tr><td>
+#include < stdio.h >
+void function_name()
+{
+	\\code
+}
+int main()
+{
+	\\Calling function
+	function_name();
+}
+</td></tr></table></pre>
+<h4>Example:</h4>
+<pre><table style="background-color:slateblue"><tr><td>
+#include < stdio.h >
+/* function return type is void and doesn't have parameters */
+void demo()
+{
+	printf("Hello World");
+}
+int main()
+{
+	/* Calling function */
+	demo();
+	return 0;
+}
+</td></tr></table></pre>
+<h4>Output:</h4>
+<table style="border:2px solid slateblue"><tr><td>
+Hello  World
+</td></tr></table>
+<h4>Explanation:</h4>
+<p><b>demo()</b> is a user defined function, and in <b>main(), demo()</b> function is called so that it can perform its task.</p>
+
+<h2><u>6.2 function declaration</u></h2>
+<p>A function declaration tells the compiler about a function name. The actual body of the function can be defined separately.</p>
+<h4><u>Example:</u></h4>
+<pre><table style="border:2px solid green"><tr><td>
+#include < stdio.h > 
+/* function declaration */ 
+int sum(int num1, int num2); 
+int main () 
+{ 
+	/* local variable definition */ 
+	int a = 10; 
+	int b = 20; 
+	int s; 
+
+	/* calling a function to get sum of the numbers */ 
+	s = sum(a, b); 
+	
+	printf( "Sum of the numbers is : %d\n", s ); 
+	return 0; 
+} 
+/* function returning the sum of the two numbers */ 
+int sum(int num1, int num2) 
+{ 
+	/* local variable declaration */ 
+	int result; 
+	
+	result = num1 + num2; 
+	return result; 
+} 
+</table></tr></td></pre>
+<h4>Output:</h4>
+<pre><table style="border:2px solid green"><tr><td>
+	Sum of the numbers is : 30	
+</table></tr></td></pre>
+<h4>Explanation:</h4>
+<p>The function is declared first and then it is defined. The main() calls the function sum() and passes two arguments so that called function can perform its defined task and return the result.</p>
+
+<h2><u>6.3 function parameter</u></h2>
+<p>There are two types of arguments/parameters</p>
+<ol>
+	<li>Actual parameters</li>
+	<li>Formal parameters</li>
+</ol>
+<h4>Actual parameters</h4>
+<p>Are parameters that appear in <b>function calls</b>.</p>
+<h4>Syntax:</h4>
+<pre>
+<table style="border:2px solid black"><tr><td>
+	Function_name(actual parameters)	
+
+</td></tr></table>
+</pre>
+<h4>Formal parameters</h4>
+<p>Are parameters that appear in <b>function declarations.</b></p>
+<h4>Syntax:</h4>
+<pre> <table style="border:2px solid black"><tr><td>
+	return_type function_name(formal parameters)	
+
+</td></tr></table></pre>
+<h4>Example of actual parameter and formal parameter:</h4>
+<pre><table style="border:2px solid green"><tr><td>
+#include < stdio.h >
+
+/*function declaration */
+int sum(int num1, int num2);
+
+int main()
+{
+	/* local variable definition */
+	int a = 10;
+	int b = 20;
+	int s;
+
+	/* calling a function to get sum of the numbers */
+	s = sum(a, b); //Actual Parameter
+
+	printf("Sum of the numbers is : %d\n",s);
+	return 0;
+}
+/* function returning the sum of the two numbers */
+int sum(int num1, int num2)//Formal Parameter
+{
+	/* local variable declaration */
+	int result;
+	result = num1 + num2;
+	return result;
+}
+</td></tr></table></pre>
+<h4>Output:</h4>
+<pre><table style="border:2px solid green"><tr><td>
+	Sum of the numbers is : 30	
+</td></tr></table></pre>
+<h4>Explanation:</h4>
+<p><b>In calling function-sum(a,b), a</b> and <b>b</b> are actual parameters. And parameters in function definition - <b>int sum(int num1, int num2), num1</b> and <b>num2</b> are formal parameters.</p>
+<p>NOTE:</p>
+<ul>
+	<li>Formal parameters are always variables.</li>
+	<li>Actual parameters need not have to be variables. You can use variables, numbers, expressions, or even function calls as actual parameters.</li>
+</ul>
+
+
+<table style="border:2px solid green"><tr><td><a href="HomePage.htm">Home</a></td></tr></table>
+</body>
+</html>

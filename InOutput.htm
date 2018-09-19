@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<p><h1><center>Input Output</center></h1></p>
+<u><h3>12.1 Introduction</h3></u></br>
+<pre>
+<b>Input</b> : data provided to a <b>program.
+Output</b> : data provided by a<b> program</b>.
+
+
+
+The basic <b>input/output </b>function are <b>getchar, putchar, gets, puts, scanf, printf. getchar</b> and putchar : Single Character<b> getchar function</b> : Single Character Input
+
+
+The <b>getchar</b> function returns a<b> single </b>character.<b> putchar function </b>: <b>Single</b> Character Output<b> Single</b> characters can be displayed using the<b> putchar </b>function.
+
+
+
+<b>Example of getchar and putchar :</b>
+
+
+
+	#<font color="magenta">include</font> < stdio.h >
+
+	<font color="magenta">int</font><font color="blue"> main</font>( )
+
+   {
+
+    	<font color="magenta">int</font> c;
+
+
+    	<font color="orange">printf</font>( <font color="green">"Enter a single character :"</font>);
+
+    	c = getchar( );
+
+
+    	<font color="orange">printf</font>(<font color="green"> "\nEntered Character is : "</font>);
+
+    	<font color="orange">putchar</font>( c );
+
+
+    	<font color="magenta">return </font><font color="brown">0</font>;
+
+   }
+
+<b>Output :</b>
+<div style="width:220px;height:60px;border:1px solid #000;">Enter a single character : a
+
+Entered Character is : a
+</div>
+<b>Explanation :</b>
+
+When you enter a single character or string as input in<b> getchar</b> function, the <b>putchar</b> function will only going to display the first character from the entered input. Because <b>getchar</b> and <b>putchar</b> function are single character<b> input </b>and <b>output</b> function.
+</pre>
+<u><h3>12.2 gets and puts function</h3></u></br>
+<pre>
+<b>gets function</b>
+
+
+Reads characters from the standard input, until a newline character or the end-of-file is reached.
+
+<b>
+
+puts function
+
+</b>
+Puts function is used to output strings.
+
+
+<b>
+Example of gets and puts :</b>
+
+
+		
+# <font color="magenta">include</font> < stdio.h >
+
+	<font color="magenta">int</font> <font color="blue">main</font>()
+
+   {
+
+    	<font color="magenta">char</font> str[<font color="brown">100</font>];
+
+
+    	<font color="orange">printf</font>(<font color="green"> "Enter a string : "</font>);
+
+    	gets( str );
+
+
+    	<font color="orange">printf</font>(<font color="green"> "\nEntered String : "</font>);
+
+    	<font color="orange">puts</font>( str );
+
+
+    	<font color="magenta">return </font><font color="brown">0</font>;
+
+   }
+
+
+<b>Output :</b>
+
+
+<div style="width:210px;height:70px;border:1px solid#000;">
+Enter a string : Hello World
+
+Entered String : Hello World
+</div>
+
+<b>Explanation :</b>
+
+The <b>gets </b>function stores the input in <b>str</b> and <b>puts</b> function displays that<b> string str</b>.
+</pre>
+<u><h3>12.3 Scanf Function</h3></u></br>
+<pre>
+<b>scanf function :</b>
+
+
+The <b>scanf()</b> function is used to take input from user. This function can be used to enter any combination of<b> numeric values, single characters</b> and <b>strings</b>.
+
+<b>
+
+Syntax :</b>
+
+<div style="width:280px;height:60px;border:1px solid#000;">
+
+scanf ("format string", argument list);</div>
+
+<b>format string :</b> It contains the information for interpreting the entire data.
+
+
+<div style="width:470px;height:70px;border:1px solid#555;">NOTE :
+<ul>
+<li>The format string must be a text enclosed in double quotes.</div></li>
+</ul>
+</pre>
+</p>
+<p>
+<u><h3>12.4 printf function</h3></u></br>
+</p>
+<pre>
+<b>printf()</b> is used to display output.
+
+
+<b>Syntax</b> :
+
+
+
+<div style="width:300px;height:30px;border:1px solid#555;">printf ("format string", argument list);</div>
+<b>
+format string</b> : collection of escape sequence or/and conversion specification.
+
+<b>Argument list :</b> contains a list of variables.
+
+
+
+<b>Example of scanf and printf :</b>
+	
+
+
+#<font color="magenta">include</font>< stdio.h >
+
+	<font color="magenta">int</font><font color="blue"> main</font>()
+
+   {
+
+    	<font color="magenta">char</font> str[<font color="brown">10</font>];
+
+    	<font color="magenta">char</font> ch;
+
+    	<font color="magenta">int</font> i;
+
+    	<font color="magenta">float </font>f;
+
+
+    	<font color="orange">printf</font>(<font color="green">"Enter Character : "</font>);
+
+    	<font color="orange">scanf</font>(<font color="green">"%c"</font>,&ch);  // Accept Character
+
+    	<font color="orange">printf</font>(<font color="green">"\nCharacter is : %c "</font>,ch);
+
+
+    	<font color="orange">printf</font>(<font color="green">"\nEnter String : "</font>);
+
+    	<font color="orange">scanf</font>(<font color="green">"%s"</font>,str);  // Accept String
+
+    	<font color="orange">printf</font>(<font color="green">"\nString is : %s "</font>,str);
+
+
+    	<font color="orange">printf</font>(<font color="green">"\nEnter Integer : "</font>);
+
+    	<font color="orange">scanf</font>(<font color="green">"%d"</font>,&i);  // Accept Integer
+
+    	<font color="orange">printf</font>(<font color="green">"\nInteger is : %d "</font>,i);
+
+
+    	<font color="orange">printf</font>(<font color="green">"\nEnter Float : "</font>);
+
+    	<font color="orange">scanf</font>(<font color="green">"%f"</font>,&f);  // Accept Float
+
+    	<font color="orange">printf</font>(<font color="green">"\nFloat is : %f "</font>,f);
+
+
+    	<font color="orange">return</font> <font color="brown">0</font>;
+
+   }
+
+
+<b>
+
+Explanation :
+</b>
+
+<b>scanf</b> will take the input as<b> character (%c), string (%s), integer (%d), float (%f)</b> and displays the output through <b>printf</b> statement by using conversion specification<b> (%c, %s, %d, %f)</b>.
+
+
+
+<div style="width:740px;height:200px;border:1px solid#555;">
+NOTE :
+
+
+<i class="material-icons" style="font-size:12px;color:SLATEBLUE">star</i><font color="orange">#include< stdio.h ></font> is mandatory for printf function.
+
+<i class="material-icons" style="font-size:12px;color:SLATEBLUE">star</i>format specification of scanf and printf function must be enclosed in double quotes.
+
+<i class="material-icons" style="font-size:12px;color:SLATEBLUE">star</i>& ampersand is required in argument list of scanf function to be used with the list of variables.
+
+<i class="material-icons" style="font-size:12px;color:SLATEBLUE">star</i>The format specification and argument list must be separated by comma.
+</div>
+</pre>
+</head>
+<table style="border:2px solid green"><tr><td><a href="HomePage.htm">Home</a></td></tr></table>
+</body>
+</html>

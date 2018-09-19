@@ -1,0 +1,165 @@
+﻿<!--This Website is to help all the students learning C programming-->
+<!DOCTYPE html>
+<html>
+<head>
+<title> String </title>
+</head>
+<body>
+<h1 style="text-align:center"> String </h1>
+<h2><u>9.1 Introduction</u></h2>
+<p>Group of characters can be stored in a character array. 
+String in C language is an array of characters that is terminated by \0 (null character)</p>
+<h4><u>Declaration:</u></h4>
+<p>There are two ways to declare string in c language.</p>
+<p>1.By char array</p>
+<p>2.By string literal</p>
+
+
+<h4>string by char array</h4>
+<h4>Syntax:</h4>
+<pre>
+char ch[]={'h','e','l','l','o','\0'}; 
+
+</pre>
+
+<p>Note :
+
+Declaring string size is not mandatory.</p>
+
+
+<h4>string by string literal</h4>
+
+
+<h4>Syntax :</h4>
+
+
+<pre>
+char ch[]="hello"; 
+
+
+</pre>
+<p>Note :</p>
+<p>‘\0’ is not necessary. C inserts the null character automatically.</p>
+<h4>Important Points:</h4>
+<p>The '%s' is used to print string in c language.</p>
+<h4>Example of string:</h4>
+<pre>
+#include < stdio.h > 
+int main(void) 
+{ 
+	char ch[11] = {'h', 'e', 'l', 'l', 'o', '\0'}; 
+	char ch2[11] = "hello"; 
+	char c = 'h'; 
+	printf("Character value is : %c\n",c); 
+	printf("\nChar Array Value is : %s\n", ch); 
+	printf("\nString Literal Value is : %s\n", ch2); 
+	return 0; 
+}
+</pre>
+<h4>Output:</h4>
+<pre>
+	Character value is : h 
+	Char Array Value is : hello 
+	String Literal Value is : hello 
+</pre>
+<h4>Example of gets and puts function:</h4>
+<pre>
+#include < stdio.h > 
+int main(void) 
+{ 
+	char name[25] ; 
+	printf ( "Enter name : " ) ; 
+	gets ( name ) ;//for input 
+	printf("\nYour Name is : "); 
+	puts ( name ) ;//for output 
+	return 0; 
+} 
+</pre>
+<h4>Output:</h4>
+<pre>
+	Enter name : hello
+	Your Name is : hello
+</pre>
+<h2><u>9.2 String functions</u></h2>
+<h3><u>9.2.1 strlen </u></h3>
+<p>The strlen() function returns the length of the given string. It doesn't count null character '\0'.</p>
+<h4>Syntax:</h4>
+<pre>
+	strlen(string_name)
+</pre>
+<h4>Example:</h4>
+<pre>
+#include < stdio.h > 
+int main(void) 
+{ 
+	char ch[20]={'h','e','l','l','o','\0'}; 
+	printf("Length of string is: %d",strlen(ch)); 
+	return 0; 
+} 
+</pre>
+<h4>Output:</h4>
+<pre>	Length of string is :5</pre>
+<h3><u>9.2.2 strcpy </u></h3>
+<p>The strcpy(destination, source) function copies the source string in destination.</p>
+<h4>Syntax:</h4>
+<pre>
+	strcpy(destination, source)
+</pre>
+<h4>Example:</h4>
+<pre>
+#include < stdio.h > 
+int main(void) 
+{ 
+	char source[20]={'h','e','l','l','o','\0'}; 
+	char destination[20]; 
+	strcpy(destination,source); 
+	printf("Value of second string is : %s",destination);
+	return 0; 
+} 
+</pre>
+<h4>Output:</h4>
+<pre>	Value of second string is:hello </pre>
+<h3><u>9.2.3 strcat </u></h3>
+<p>The strcat(first_string, second_string) function concatenates two strings and result is returned to first_string.</p>
+<h4>Syntax:</h4>
+<pre>
+	strcat(first_string, second_string) 
+</pre>
+<h4>Example:</h4>
+<pre>
+#include < stdio.h > 
+int main(void) 
+{ 
+	char firststring[10]={'h','e','l','l','o',' ','\0'}; 
+	char secondstring[10]={'w','o','r','l','d','\0'}; 
+	strcat(firststring,secondstring); 
+	printf("Value of first string is : %s",firststring); 
+} 
+</pre>
+<h4>Output:</h4>
+<pre>	Value of first string is : hello world </pre>
+<h3><u>9.2.4 strcmp </u></h3>
+<p>The strcmp(first_string, second_string) function compares two strings.</p>
+<h4>Syntax:</h4>
+<pre>
+	strcmp(first_string, second_string) 
+</pre>
+<h4>Example:</h4>
+<pre>
+#include < stdio.h > 
+int main(void) 
+{ 
+	char firststring[20],secondstring[20]; 
+	printf("Enter first string : "); 
+	gets(firststring);//reads string from console 
+	printf("\nEnter second string : "); 
+	gets(secondstring); 
+	if(strcmp(firststring,secondstring)==0) 
+	printf("\nStrings are equal"); 
+	else 
+	printf("\nStrings are not equal"); 
+} 
+</pre>
+<table style="border:2px solid green"><tr><td><a href="HomePage.htm">Home</a></td></tr></table>
+</body>
+</html>
